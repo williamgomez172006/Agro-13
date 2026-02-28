@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Agro_Mercado.AppMVC.Models;
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AgroMercadoSprintContext>(options =>
     options.UseSqlServer(
