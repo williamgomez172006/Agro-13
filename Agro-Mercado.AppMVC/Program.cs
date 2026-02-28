@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Agro-Mercado.AppMVC.Models;
+using Agro_Mercado.AppMVC.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
