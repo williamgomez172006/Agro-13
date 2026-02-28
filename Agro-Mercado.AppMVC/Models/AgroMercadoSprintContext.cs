@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
 namespace Agro_Mercado.AppMVC.Models;
-
+    
 public partial class AgroMercadoSprintContext : DbContext
 {
     public AgroMercadoSprintContext()
