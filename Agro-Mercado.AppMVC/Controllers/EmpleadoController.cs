@@ -165,7 +165,7 @@ namespace Agro_Mercado.AppMVC.Controllers
 
             if (empleado == null)
                 return NotFound();
-
+                                    
             return View(empleado);
         }
     }

@@ -1,13 +1,24 @@
+using Agro_Mercado.AppMVC.Controllers;
+using Agro_Mercado.AppMVC.Models;
 using Agro_Mercado.AppMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace Agro_Mercado.AppMVC.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public IActionResult Index()
         {
+            var usuario = HttpContext.Session.GetString("Usuario");
+
+            if (usuario == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            ViewBag.Usuario = usuario;
+
             return View();
         }
 
