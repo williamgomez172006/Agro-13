@@ -15,7 +15,7 @@ public partial class Empleado
 
     public int RolId { get; set; }
 
-    public bool? Activo { get; set; }
+    public bool Activo { get; set; }
 
     public virtual ICollection<Compra> Compras { get; set; } = new List<Compra>();
 

@@ -1,5 +1,4 @@
 ﻿using Agro_Mercado.AppMVC.Models;
-using Agro_Mercado.AppMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
