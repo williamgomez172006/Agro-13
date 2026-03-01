@@ -1,5 +1,25 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model Agro_Mercado.AppMVC.Models.Categoria
+
+<h2>Editar Categoría</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label asp-for="Nombre" class="form-label"></label>
+        <input asp-for="Nombre" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Descripcion" class="form-label"></label>
+        <input asp-for="Descripcion" class="form-control" />
+    </div>
+
+    <div class="form-check mb-3">
+        <input asp-for="Estado" class="form-check-input" />
+        <label asp-for="Estado" class="form-check-label">Activa</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
