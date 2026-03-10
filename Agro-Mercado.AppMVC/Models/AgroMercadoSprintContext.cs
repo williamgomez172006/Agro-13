@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
 namespace Agro_Mercado.AppMVC.Models;
-    
+
 public partial class AgroMercadoSprintContext : DbContext
 {
     public AgroMercadoSprintContext()
@@ -30,6 +30,8 @@ public partial class AgroMercadoSprintContext : DbContext
     public virtual DbSet<DetalleVentum> DetalleVenta { get; set; }
 
     public virtual DbSet<Empleado> Empleados { get; set; }
+
+    public virtual DbSet<MovimientosInventario> MovimientosInventarios { get; set; }
 
     public virtual DbSet<Producto> Productos { get; set; }
 
@@ -189,16 +191,40 @@ public partial class AgroMercadoSprintContext : DbContext
                 .HasConstraintName("FK__Empleados__RolId__04E4BC85");
         });
 
+        modelBuilder.Entity<MovimientosInventario>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Movimien__3214EC0746FF28DF");
+
+            entity.ToTable("MovimientosInventario");
+
+            entity.Property(e => e.Fecha)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.TipoMovimiento)
+                .HasMaxLength(20)
+                .IsUnicode(false);
+
+            entity.HasOne(d => d.Producto).WithMany(p => p.MovimientosInventarios)
+                .HasForeignKey(d => d.ProductoId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Movimientos_Productos");
+        });
+
         modelBuilder.Entity<Producto>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Producto__3214EC07F65436EC");
 
             entity.Property(e => e.Activo).HasDefaultValue(true);
+            entity.Property(e => e.FechaRegistro)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
             entity.Property(e => e.Nombre)
                 .HasMaxLength(150)
                 .IsUnicode(false);
+            entity.Property(e => e.PrecioCompraPromedio).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.PrecioVenta).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.Stock).HasDefaultValue(0);
+            entity.Property(e => e.StockMinimo).HasDefaultValue(0);
 
             entity.HasOne(d => d.Categoria).WithMany(p => p.Productos)
                 .HasForeignKey(d => d.CategoriaId)
