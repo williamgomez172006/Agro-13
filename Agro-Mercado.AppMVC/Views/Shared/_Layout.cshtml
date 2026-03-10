@@ -142,7 +142,14 @@
                         @if (rolId == 1)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Role" asp-action="Index">Rol</a>
+                                <a class="nav-link text-dark" asp-controller="Role" asp-action="Index">
+                                    Rol
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Producto" asp-action="Index">
+                                    Producto
+                                </a>
                             </li>
                         }
                         @if (Context.Session.GetString("Usuario") != null)
