@@ -356,8 +356,17 @@ healthchecksdb
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
 
+<<<<<<< HEAD
+=======
+Agro-Mercado.AppMVC/appsettings.Development.json
+
+>>>>>>> upstream/master
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
 # Fody - auto-generated XML schema
+<<<<<<< HEAD
 FodyWeavers.xsd
+=======
+FodyWeavers.xsd
+>>>>>>> upstream/master

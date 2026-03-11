@@ -19,6 +19,15 @@ public partial class Producto
 
     public bool? Activo { get; set; }
 
+<<<<<<< HEAD
+=======
+    public int? StockMinimo { get; set; }
+
+    public DateTime? FechaRegistro { get; set; }
+
+    public decimal? PrecioCompraPromedio { get; set; }
+
+>>>>>>> upstream/master
     public virtual ICollection<AjusteInventario> AjusteInventarios { get; set; } = new List<AjusteInventario>();
 
     public virtual Categoria Categoria { get; set; } = null!;
@@ -27,5 +36,10 @@ public partial class Producto
 
     public virtual ICollection<DetalleVentum> DetalleVenta { get; set; } = new List<DetalleVentum>();
 
+<<<<<<< HEAD
+=======
+    public virtual ICollection<MovimientosInventario> MovimientosInventarios { get; set; } = new List<MovimientosInventario>();
+
+>>>>>>> upstream/master
     public virtual UnidadMedidum UnidadMedida { get; set; } = null!;
 }

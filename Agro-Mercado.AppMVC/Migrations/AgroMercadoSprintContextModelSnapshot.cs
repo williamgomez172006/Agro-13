@@ -258,7 +258,11 @@ namespace Agro_Mercado.AppMVC.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+<<<<<<< HEAD
                     b.Property<bool>("Activo")
+=======
+                    b.Property<bool?>("Activo")
+>>>>>>> upstream/master
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
